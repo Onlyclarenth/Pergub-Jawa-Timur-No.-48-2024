@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peraturan Gubernur Jawa Timur No. 48 Tahun 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: #f0f2f7;
+      color: #2c3e50;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* COVER PAGE */
+    #coverPage {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    #coverPage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255 255 255 / 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255 255 255 / 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255 255 255 / 0.1) 0%, transparent 50%);
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(1deg); }
+    }
+
+    h1.main-title {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 10;
+      animation: slideInDown 1s ease-out;
+      user-select: none;
+    }
+
+    .regulation-number {
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: #ffd700;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.45);
+      margin-bottom: 0.4rem;
+      animation: slideInLeft 1s ease-out 0.3s both;
+      position: relative;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .regulation-about {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      margin-bottom: 0.6rem;
+      animation: slideInRight 1s ease-out 0.6s both;
+      position: relative;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .regulation-subject {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #ffd700, #ffed4e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+      animation: slideInUp 1s ease-out 0.9s both;
+      position: relative;
+      z-index: 10;
+      line-height: 1.2;
+      white-space: pre-line;
+    }
+
+    .government-name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: rgba(255 255 255 / 0.95);
+      margin-bottom: 3rem;
+      animation: fadeIn 1s ease-out 1.2s both;
+      position: relative;
+      z-index: 10;
+      user-select: none;
+    }
+
+    /* Enter button */
+    .enter-button {
+      position: relative;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(45deg, #ffd700, #ffed4e);
+      color: #2c3e50;
+      padding: 18px 48px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(255 215 0 / 0.35);
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: bounceIn 1s ease-out 1.5s both;
+    }
+    .enter-button::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255 255 255 / 0.35), transparent);
+      transition: left 0.5s ease;
+      border-radius: 50px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .enter-button:hover::before {
+      left: 100%;
+    }
+    .enter-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(255 215 0 / 0.5);
+    }
+    .enter-button:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    /* Animations for cover page texts */
+    @keyframes slideInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      50% { opacity: 1; transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* MAIN CONTENT */
+    #mainContent {
+      display: none;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      animation: fadeInContent 0.8s ease forwards;
+      user-select: text;
+    }
+    #mainContent.show {
+      display: block;
+    }
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgb(0 0 0 / 0.15);
+      overflow: hidden;
+      padding-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 80vh;
+    }
+
+    /* Header inside main content */
+    .header {
+      position: relative;
+      padding: 40px 30px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .header::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 2px,
+        rgba(255 255 255 / 0.03) 2px,
+        rgba(255 255 255 / 0.03) 4px
+      );
+      animation: rotate 20s linear infinite;
+      z-index: 0;
+    }
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .header .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* Back button */
+    #backButton {
+      display: none;
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      background: rgba(255 255 255 / 0.95);
+      color: #667eea;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+      cursor: pointer;
+      align-items: center;
+      gap: 8px;
+      z-index: 1200;
+      user-select: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #backButton span.material-icons {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    #backButton.show {
+      display: flex;
+    }
+    #backButton:hover {
+      background: white;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Content area */
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px 30px 60px;
+      user-select: text;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 4px solid #667eea;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      user-select: none;
+    }
+
+    .subsection-title {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-top: 2rem;
+      margin-bottom: 1.25rem;
+      border-left: 5px solid #667eea;
+      padding-left: 18px;
+      user-select: none;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 25px 0 40px;
+      border: 2px solid #667eea;
+      text-align: center;
+      color: #2c3e50;
+      user-select: none;
+    }
+    .highlight-box .material-icons {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      color: #667eea;
+      user-select: none;
+    }
+    .highlight-box h3 {
+      margin-bottom: 0.2rem;
+    }
+    .highlight-box p {
+      font-style: italic;
+      color: #555;
+      user-select: text;
+    }
+
+    /* Stats container */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 3rem;
+    }
+    .stat-item {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.1);
+      border-top: 5px solid #667eea;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgb(0 0 0 / 0.15);
+    }
+    .stat-number {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #667eea;
+      margin-bottom: 4px;
+      user-select: text;
+    }
+    .stat-label {
+      color: #6a7180;
+      font-size: 0.95rem;
+    }
+
+    /* Definitions grid */
+    .definitions-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .definition-card {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 25px 28px;
+      border-left: 8px solid #667eea;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      color: #444;
+    }
+    .definition-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      border-radius: 8px 8px 0 0;
+      z-index: 0;
+    }
+    .definition-card:hover {
+      background: #fff;
+      transform: translateY(-6px);
+      box-shadow: 0 17px 40px rgba(0,0,0,0.12);
+    }
+    .definition-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .definition-term {
+      font-weight: 700;
+      font-size: 1.12rem;
+      color: #2c3e50;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .definition-letter {
+      background: #667eea;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .definition-abbreviation {
+      font-weight: 600;
+      color: #667eea;
+      user-select: text;
+    }
+
+    .definition-content {
+      font-size: 1rem;
+      color: #555;
+      text-align: justify;
+      line-height: 1.6;
+      user-select: text;
+    }
+
+    /* Footer note */
+    .footer-note {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 28px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 3rem;
+      user-select: text;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      user-select: text;
+    }
+    .footer-note .law-ref {
+      font-weight: 700;
+      color: #f39c12;
+      user-select: text;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #coverPage {
+        padding: 15px 20px;
+      }
+      h1.main-title {
+        font-size: 2.4rem;
+        letter-spacing: 0.1em;
+      }
+      .regulation-number {
+        font-size: 1.6rem;
+      }
+      .regulation-subject {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        white-space: normal;
+      }
+      .government-name {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+      }
+      .enter-button {
+        padding: 14px 32px;
+        font-size: 1.1rem;
+      }
+      #mainContent {
+        padding: 15px;
+      }
+      .container {
+        max-width: 100%;
+        margin: 10px 10px 40px;
+        padding-bottom: 1.5rem;
+        border-radius: 16px;
+      }
+      .header {
+        padding: 30px 20px;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+      .header .subtitle {
+        font-size: 1rem;
+      }
+      .content {
+        padding: 25px 20px 40px;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      .section-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        margin-top: 1.6rem;
+        margin-bottom: 1rem;
+        border-left-width: 4px;
+        padding-left: 14px;
+      }
+      .highlight-box {
+        padding: 16px 22px;
+        margin: 20px 0 30px;
+      }
+      .highlight-box .material-icons {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .stats-container {
+        grid-template-columns: 1fr;
+        margin-bottom: 2rem;
+      }
+      .definition-card {
+        padding: 20px 22px;
+      }
+      .stat-item {
+        padding: 18px 15px;
+      }
+      .stat-number {
+        font-size: 1.8rem;
+      }
+      .stat-label {
+        font-size: 0.85rem;
+      }
+      .footer-note {
+        font-size: 0.8rem;
+        margin-top: 2rem;
+        padding: 16px 20px;
+      }
+      #backButton {
+        top: 16px;
+        left: 16px;
+        padding: 9px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- COVER PAGE -->
+  <section id="coverPage" role="main" aria-label="Halaman Sampul Peraturan Gubernur">
+    <h1 class="main-title" tabindex="0">PERATURAN GUBERNUR</h1>
+    <div class="regulation-number" tabindex="0">JAWA TIMUR NOMOR 48 TAHUN 2024</div>
+    <div class="regulation-about" tabindex="0">TENTANG</div>
+    <div class="regulation-subject" tabindex="0">SISTEM DAN PROSEDUR<br />PENATAUSAHAAN KEUANGAN DAERAH</div>
+    <div class="government-name" tabindex="0">PEMERINTAH PROVINSI JAWA TIMUR</div>
+    <button class="enter-button" aria-label="Masuk ke bab I" type="button" id="enterBtn">
+      <span class="material-icons" aria-hidden="true">menu_book</span>
+      <span>MASUK KE BAB I</span>
+      <span class="material-icons" aria-hidden="true">arrow_forward</span>
+    </button>
+  </section>
+
+  <!-- BACK BUTTON -->
+  <button type="button" id="backButton" aria-label="Kembali ke halaman sampul" >
+    <span class="material-icons" aria-hidden="true" style="font-size: 1.4rem;">arrow_back</span>
+    <span>Kembali</span>
+  </button>
+
+  <!-- MAIN CONTENT -->
+  <main id="mainContent" role="main" aria-label="Konten Bab 1 Gambaran Umum Pengelolaan Keuangan">
+    <div class="container">
+      <header class="header">
+        <h1 tabindex="0">🏛️ BAB I</h1>
+        <div class="subtitle" tabindex="0">GAMBARAN UMUM PENGELOLAAN KEUANGAN</div>
+      </header>
+      <article class="content">
+        <section class="section" aria-labelledby="section-prinsip">
+          <h2 class="section-title" id="section-prinsip"><span class="section-icon" aria-hidden="true">A</span> PRINSIP DAN KEBIJAKAN PENGELOLAAN KEUANGAN</h2>
+
+          <h3 class="subsection-title" tabindex="0">1. PENGERTIAN</h3>
+
+          <div class="highlight-box" tabindex="0" aria-label="Pengertian dan definisi penting">
+            <span class="material-icons icon" aria-hidden="true">content_paste</span>
+            <h3>Pengertian dan Definisi</h3>
+            <p>Berikut adalah pengertian istilah-istilah penting dalam pengelolaan keuangan daerah sesuai dengan ketentuan yang berlaku</p>
+          </div>
+
+          <div class="stats-container" aria-label="Statistik definisi penting">
+            <div class="stat-item" tabindex="0">
+              <div class="stat-number">22</div>
+              <div class="stat-label">Definisi Penting</div>
+            </div>
+            <div class="stat-item" tabindex="0">
+              <div class="stat-number">SKPD</div>
+              <div class="stat-label">Unit Kerja Utama</div>
+            </div>
+            <div class="stat-item" tabindex="0">
+              <div class="stat-number">RKUD</div>
+              <div class="stat-label">Rekening Kas Daerah</div>
+            </div>
+          </div>
+
+          <div class="definitions-grid">
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf a Satuan Kerja Perangkat Daerah">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">a</span>
+                  <span class="definition-abbreviation">Satuan Kerja Perangkat Daerah (SKPD)</span>
+                </div>
+                <p class="definition-content">
+                   Perangkat daerah pada pemerintah daerah selaku pengguna anggaran/pengguna barang.
+                </p>
+              </section>
+
+              <section class="definition-card" tabindex="0" aria-label="Definisi huruf b Unit SKPD">
+                <div class="definition-term">
+                  <span class="definition-letter" aria-hidden="true">b</span>
+                  <span class="definition-abbreviation">Unit SKPD</span>
+                </div>
+                <p class="definition-content">
+                  Bagian SKPD yang melaksanakan 1 (satu) atau beberapa Program atau Kegiatan atau Subkegiatan.
+                </p>
+              </section>
+
+              <section class="definition-card" tabindex="0" aria-label="Definisi huruf c Satuan Kerja Pengelola Keuangan Daerah">
+                <div class="definition-term">
+                  <span class="definition-letter" aria-hidden="true">c</span>
+                  <span class="definition-abbreviation">Satuan Kerja Pengelola Keuangan Daerah (SKPKD)</span>
+                </div>
+                <p class="definition-content">
+                  Perangkat daerah pada pemerintah daerah selaku pengguna anggaran/pengguna barang, yang juga melaksanakan pengelolaan keuangan daerah.
+                </p>
+              </section>
+
+              <section class="definition-card" tabindex="0" aria-label="Definisi huruf d Pejabat Pengelola Keuangan Daerah">
+                <div class="definition-term">
+                  <span class="definition-letter" aria-hidden="true">d</span>
+                  <span class="definition-abbreviation">Pejabat Pengelola (PPKD) </span>
+                </div>
+                <p class="definition-content">
+                  Kepala satuan kerja pengelola keuangan daerah yang selanjutnya disebut dengan kepala SKPKD yang mempunyai tugas melaksanakan pengelolaan APBD dan bertindak sebagai bendahara umum daerah.
+                </p>
+              </section>
+              
+              <section class="definition-card" tabindex="0" aria-label="Definisi huruf e Pengguna Anggaran PA">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">e</span>
+                <span class="definition-abbreviation">Pengguna Anggaran (PA)</span>
+              </div>
+              <p class="definition-content">
+                Pejabat pemegang kewenangan penggunaan anggaran untuk melaksanakan tugas pokok dan fungsi SKPD yang dipimpinnya.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf f Kuasa Pengguna Anggaran KPA">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">f</span>
+                <span class="definition-abbreviation">Kuasa Pengguna Anggaran (KPA)</span>
+              </div>
+              <p class="definition-content">
+                Pejabat yang diberi kuasa untuk melaksanakan sebagian kewenangan pengguna anggaran dalam melaksanakan sebagian tugas dan fungsi SKPD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf g Pejabat Penandatanganan Kontrak PPKom">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">g</span>
+                <span class="definition-abbreviation">Pejabat Penandatanganan Kontrak atau Pejabat Pembuat Komitmen (PPKom)</span>
+              </div>
+              <p class="definition-content">
+                Pejabat yang diberi kewenangan oleh PA/KPA untuk mengambil keputusan dan/atau melakukan tindakan yang dapat mengakibatkan pengeluaran anggaran belanja negara/anggaran belanja daerah.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf h Pejabat Penatausahaan Keuangan SKPD PPK-SKPD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">h</span>
+                <span class="definition-abbreviation">Pejabat Penatausahaan Keuangan SKPD (PPK–SKPD)</span>
+              </div>
+              <p class="definition-content">
+                Pejabat yang melaksanakan fungsi tata usaha keuangan pada SKPD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf i Pejabat Penatausahaan Keuangan Unit SKPD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">i</span>
+                <span class="definition-abbreviation">Pejabat Penatausahaan Keuangan Unit Satuan Kerja Perangkat Daerah (PPK–Unit SKPD)</span>
+              </div>
+              <p class="definition-content">
+                Pejabat yang melaksanakan fungsi tata usaha keuangan pada unit SKPD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf j Pejabat Pelaksana Teknis Kegiatan PPTK">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">j</span>
+                <span class="definition-abbreviation">Pejabat Pelaksana Teknis Kegiatan (PPTK)</span>
+              </div>
+              <p class="definition-content">
+                Pejabat pada unit kerja SKPD yang melaksanakan satu atau beberapa kegiatan/subkegiatan dari suatu program sesuai dengan bidang tugasnya.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf k Bendahara Penerimaan BPn">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">k</span>
+                <span class="definition-abbreviation">Bendahara Penerimaan (BPn)</span>
+              </div>
+              <p class="definition-content">
+                Orang yang ditunjuk untuk menerima, menyimpan, menyetorkan, menatausahakan, dan mempertanggung jawabkan uang pendapatan daerah dalam rangka pelaksanaan APBD pada SKPD/SKPKD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf l Bendahara Pengeluaran BP">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">l</span>
+                <span class="definition-abbreviation">Bendahara Pengeluaran (BP)</span>
+              </div>
+              <p class="definition-content">
+                Orang yang ditunjuk menerima, menyimpan, membayarkan, menatausahakan, dan mempertanggung-jawabkan uang untuk keperluan belanja daerah dalam rangka pelaksanaan APBD pada SKPD/SKPKD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf m Bendahara Penerimaan Pembantu BPnP">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">m</span>
+                <span class="definition-abbreviation">Bendahara Penerimaan Pembantu (BPnP)</span>
+              </div>
+              <p class="definition-content">
+                Orang yang ditunjuk untuk membantu Bendahara Penerimaan dalam menerima, menyimpan, menyetorkan, dan menatausahakan uang Pendapatan Daerah dalam rangka pelaksanaan APBD pada SKPD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf n Bendahara Pengeluaran Pembantu BPP">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">n</span>
+                <span class="definition-abbreviation">Bendahara Pengeluaran Pembantu (BPP)</span>
+              </div>
+              <p class="definition-content">
+                Orang yang ditunjuk untuk membantu Bendahara Pengeluaran untuk menerima, menyimpan, membayarkan, menatausahakan untuk keperluan belanja daerah dalam rangka pelaksanaan APBD pada SKPD/SKPKD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf o Pengurus Gaji">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">o</span>
+                <span class="definition-abbreviation">Pengurus Gaji</span>
+              </div>
+              <p class="definition-content">
+                Pegawai yang bertugas untuk menyiapkan dokumen kelengkapan pembayaran gaji dan menyiapkan dokumen kelengkapan LPJ Gaji.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf p Penghubung Gaji">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">p</span>
+                <span class="definition-abbreviation">Penghubung Gaji</span>
+              </div>
+              <p class="definition-content">
+                Pegawai yang ditunjuk untuk menyiapkan dokumen kelengkapan pembayaran gaji serta menyiapkan dokumen kelengkapan LPJ Gaji dan menyerahkannya pada Pengurus Gaji.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf q Kartu Kredit">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">q</span>
+                <span class="definition-abbreviation">Kartu Kredit</span>
+              </div>
+              <p class="definition-content">
+                Kartu kredit sebagaimana diatur dalam ketentuan peraturan perundang-undangan Bank Indonesia di bidang sistem pembayaran.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf r Kartu Kredit Pemerintah Daerah KKPD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">r</span>
+                <span class="definition-abbreviation">Kartu Kredit Pemerintah Daerah (KKPD)</span>
+              </div>
+              <p class="definition-content">
+                Kartu Kredit yang dapat digunakan untuk melakukan pembayaran atas belanja yang dibebankan pada APBD, setelah kewajiban pembayaran pemegang kartu dipenuhi oleh bank penerbit Kartu Kredit sesuai dengan kewajibannya pada waktu yang disepakati dan satuan kerja perangkat daerah berkewajiban melakukan pelunasan kewajiban pembayaran pada waktu yang disepakati dengan pelunasan pembayaran secara sekaligus.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf s Pemegang KKPD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">s</span>
+                <span class="definition-abbreviation">Pemegang KKPD</span>
+              </div>
+              <p class="definition-content">
+                Pejabat dan/atau pegawai yang berstatus pegawai negeri sipil daerah untuk melakukan transaksi pembayaran dengan KKPD berdasarkan penetapan pengguna anggaran.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf t Administrator KKPD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">t</span>
+                <span class="definition-abbreviation">Administrator KKPD</span>
+              </div>
+              <p class="definition-content">
+                Pejabat dan/atau pegawai di lingkungan satuan kerja perangkat daerah yang berstatus sebagai pegawai negeri sipil daerah yang ditugaskan kepala daerah melaksanakan administrasi penggunaan KKPD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf u Pelaksana Kuasa Pengguna KKPD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">u</span>
+                <span class="definition-abbreviation">Pelaksana Kuasa Pengguna KKPD</span>
+              </div>
+              <p class="definition-content">
+                Pejabat dan/atau pegawai negeri sipil daerah yang diberikan kuasa oleh Pemegang KKPD sebagai Pengguna KKPD.
+              </p>
+            </section>
+
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf v Rekening Kas Umum Daerah RKUD">
+              <div class="definition-term">
+                <span class="definition-letter" aria-hidden="true">v</span>
+                <span class="definition-abbreviation">Rekening Kas Umum Daerah (RKUD)</span>
+              </div>
+              <p class="definition-content">
+                Rekening tempat penyimpanan uang Daerah yang ditentukan oleh Gubernur Jawa Timur untuk menampung seluruh Penerimaan Daerah dan membayar seluruh Pengeluaran Daerah pada bank yang ditetapkan.
+              </p>
+            </section>
+            <h2 class="subsection-title" tabindex="0">2. FLOWCHART BAB I-V</h2>
+            <section class="definition-card" tabindex="0" aria-label="Definisi huruf v Rekening Kas Umum Daerah RKUD">
+              <div class="definition-term">
+                <span class="definition-abbreviation">CLICK HERE TO ACCESS FLOWCHART</span>
+              </div>
+              <p class="definition-content">
+  <a href="https://1drv.ms/u/c/38bd2df00d9db7f0/EdWJaqWVGb9LkJR35Yc0iIsBhjFrRfvbo_czynxbhNY1Dw?e=tprUtd" target="_blank">
+    PERGUB JAWA TIMUR NOMOR 48 TAHUN 2024
+  </a>
+</p>
+
+          </div>
+        </section>
+      </article>
+
+      <footer class="footer-note" role="contentinfo" aria-label="Catatan hukum dan sertifikat elektronik">
+        <p>
+          <span class="law-ref">UU ITE No. 11 Tahun 2008 Pasal 5 Ayat 1:</span>
+          &quot;Informasi Elektronik dan/atau Dokumen Elektronik dan/atau hasil cetaknya merupakan alat bukti hukum yang sah&quot;
+        </p>
+        <p style="margin-top: 10px; font-size: 0.82rem; opacity: 0.8;">
+          Dokumen ini telah ditandatangani secara elektronik menggunakan sertifikat elektronik yang diterbitkan Balai Sertifikasi Elektronik (BSrE)
+        </p>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    const coverPage = document.getElementById('coverPage');
+    const mainContent = document.getElementById('mainContent');
+    const enterBtn = document.getElementById('enterBtn');
+    const backButton = document.getElementById('backButton');
+
+    function showMainContent() {
+      coverPage.style.display = 'none';
+      mainContent.classList.add('show');
+      backButton.classList.add('show');
+      mainContent.focus();
+    }
+    function showCoverPage() {
+      mainContent.classList.remove('show');
+      coverPage.style.display = 'flex';
+      backButton.classList.remove('show');
+      enterBtn.focus();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    enterBtn.addEventListener('click', showMainContent);
+    backButton.addEventListener('click', showCoverPage);
+
+    // Accessibility: trap focus inside main content when shown
+    mainContent.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        showCoverPage();
+      }
+    });
+  </script>
+</body>
+</html>
+
